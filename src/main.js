@@ -4,6 +4,14 @@ import './assets/tailwind.css'
 
 Vue.config.productionTip = false
 
+export const eventBus = new Vue({
+  methods: {
+    addNote(content) {
+      this.$emit('noteWasAdded', content);
+    }
+  }
+});
+
 new Vue({
   render: h => h(App),
 }).$mount('#app')

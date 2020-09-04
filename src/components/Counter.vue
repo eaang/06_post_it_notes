@@ -1,7 +1,7 @@
 <template>
-    <div id="bar-background" class="relative w-100 bg-gray-500 h-8 rounded-md">
-        <div id="bar-text" class="absolute text-center text-white font-bold">{{ notes }} / 10</div>
-        <div id="bar-progress" class="bg-green-600 h-8 rounded-md" :style="{ width: (notes * 10) + '%' }"></div>
+    <div id="bar-background" class="relative border-solid border-4 border-green-900 bg-white">
+        <div id="bar-text" class="absolute text-gray-900 text-xl font-bold">{{ notes }} / 10</div>
+        <div id="bar-progress" class="bg-green-600 h-10" :style="{ width: (notes * 10) + '%' }"></div>
     </div>
 </template>
 
