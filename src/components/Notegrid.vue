@@ -1,6 +1,6 @@
 <template>
-    <div class="grid grid-flow-row grid-cols-4 gap-4">
-        <Note v-for="note in notes" :key="note.content">
+    <div class="grid grid-flow-row grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        <Note v-for="note in notes" :id="note.id" :key="note.id">
             {{ note.content }}
         </Note>
         <Notebox />

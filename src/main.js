@@ -8,6 +8,9 @@ export const eventBus = new Vue({
   methods: {
     addNote(content) {
       this.$emit('noteWasAdded', content);
+    },
+    deleteNote(id) {
+      this.$emit('noteWasDeleted', id);
     }
   }
 });

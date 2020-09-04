@@ -1,5 +1,5 @@
 <template>
-    <div id="app" class="container mx-auto my-8">
+    <div id="app" class="container mx-auto my-8 px-4">
         <div class="flex mx-auto space-x-8 my-8">
             <Counter class="flex-1" :notes="notes.length" />
         </div>
@@ -16,10 +16,10 @@ export default {
     data: function() {
         return {
             notes: [
-                {content: 'Put away the laundry'},
-                {content: 'Take your medication'},
-                {content: 'Go to sleep before 3am'},
-                {content: 'Restock instant noodles'}
+                {id: 1, content: 'Put away the laundry'},
+                {id: 2, content: 'Take your medication'},
+                {id: 3, content: 'Go to sleep before 3am'},
+                {id: 4, content: 'Restock instant noodles'}
             ]
         }
     },
@@ -32,8 +32,13 @@ export default {
             if (this.notes.length == 10) {
                 alert("The board is full! Try deleting some notes first.")
             } else {
-                this.notes.push({content: content});
+                const newNote = {id: (this.notes.length + 1), content: content};
+                this.notes.push(newNote);
             }
+        }),
+        eventBus.$on('noteWasDeleted', (id) => {
+            const newNotes = this.notes.filter(note => note.id != id);
+            this.notes = newNotes;
         })
     }
 };
